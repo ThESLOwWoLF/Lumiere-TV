@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lumiere TV</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #161616;
+      overflow: hidden;
+    }
+    header {
+      position: relative;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 80px;
+      background-color: #f0f0f0;
+    }
+    header h4 {
+      position: absolute;
+      left: 10%;
+      bottom: 1rem;
+      font-size: 1.6rem;
+    }
+    .intro {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #161616;
+      transition: 1s;
+    }
+    .logo-header {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ffffff;
+      text-align: center;
+    }
+    .logo {
+      position: relative;
+      display: inline-block;
+      opacity: 0;
+      transition: ease-in-out 0.5s;
+    }
+    .logo.active {
+      opacity: 1;
+    }
+    .logo.fade {
+      opacity: 0;
+    }
+    .container {
+      opacity: 0.8;
+    }
+    .topnav {
+      overflow: hidden;
+      background-color: #000000;
+      padding: 18.5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topnav p {
+      color: white;
+      float: left;
+    }
+    .topnav a {
+      color: #f2f2f2;
+      text-align: center;
+      padding: 35px 36px;
+      text-decoration: none;
+      font-size: 17px;
+      border-radius: 35%;
+    }
+    .topnav a:hover {
+      background-color: rgb(6, 116, 190);
+      color: white;
+    }
+    .edit {
+      font-size: 84px;
+      text-align: center;
+      font-family: "Poppins", sans-serif;
+      color: white;
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .container-2 {
+      position: relative;
+    }
+    .background-image {
+      opacity: 35%;
+      width: 100%;
+      height: 900px;
+    }
+    #Lumiere {
+      font-family: "Poppins", sans-serif;
+      margin-left: 50px;
+      font-size: 29px;
+      font-weight: 500;
+    }
+    #nv {
+      margin-right: 40px;
+    }
+    #clock {
+      font-family: "Poppins", sans-serif;
+      color: #daf6ff;
+      text-align: center;
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      text-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0);
+    }
+    .time {
+      letter-spacing: 0.05em;
+      font-size: 24px;
+    }
+    .date {
+      letter-spacing: 0.1em;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="intro">
+    <div class="logo-header">
+      <h1>
+        <span class="logo">Welcome to</span>
+        <span class="logo">Lumiere</span>
+      </h1>
+    </div>
+  </div>
+
+  <div class="bg">
+    <header>
+      <div class="container">
+        <div class="topnav">
+          <p id="Lumiere">Lumiere</p>
+          <div id="nv">
+            <a href="Movies.html">MOVIES</a>
+            <a href="TV.html">TV SHOWS</a>
+            <a href="Dev.html">DEVs</a>
+          </div>
+        </div>
+      </div>
+      <div class="container-2">
+        <img src="https://assets.nflxext.com/ffe/siteui/vlv3/a1dc92ca-091d-4ca9-a05b-8cd44bbfce6a/f9368347-e982-4856-a5a4-396796381f28/RS-en-20191230-popsignuptwoweeks-perspective_alpha_website_large.jpg" alt="backgroundimage" class="background-image" width="1000px" height="1000px">
+        <div class="edit" id="output"></div>
+      </div>
+    </header>
+  </div>
+
+  <div id="clock">
+    <p class="date">{{ date }}</p>
+    <p class="time">{{ time }}</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <script>
+    function getCurrentTime() {
+      const now = new Date();
+      const hour = now.getHours();
+      if (hour < 12) {
+        return "Good Morning!";
+      } else if (hour < 18) {
+        return "Good Afternoon!";
+      } else {
+        return "Good Evening!";
+      }
+    }
+    
+    function displaySentence() {
+      const sentence = getCurrentTime();
+      document.getElementById("output").innerText = sentence;
+    }
+    window.onload = displaySentence;
+
+    document.addEventListener('DOMContentLoaded', function () {
+      let logoSpan = document.querySelectorAll('.logo');
+
+      setTimeout(() => {
+        logoSpan.forEach((span, idx) => {
+          setTimeout(() => {
+            span.classList.add('active');
+          }, (idx + 1) * 400);
+        });
+
+        setTimeout(() => {
+          logoSpan.forEach((span, idx) => {
+            setTimeout(() => {
+              span.classList.remove('active');
+              span.classList.add('fade');
+            }, (idx + 1) * 50);
+          });
+        }, 2000);
+
+        setTimeout(() => {
+          document.querySelector('.intro').style.top = '-100vh';
+        }, 2300);
+      });
+    });
+
+    var clock = new Vue({
+      el: '#clock',
+      data: {
+        time: '',
+        date: ''
+      }
+    });
+
+    var week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+    var timerID = setInterval(updateTime, 1000);
+    updateTime();
+
+    function updateTime() {
+      var cd = new Date();
+      var hours = cd.getHours();
+      var minutes = zeroPadding(cd.getMinutes(), 2);
+      var seconds = zeroPadding(cd.getSeconds(), 2);
+      var ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      clock.time = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+      clock.date = zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth() + 1, 2) + '-' + zeroPadding(cd.getDate(), 2) + ' ' + week[cd.getDay()];
+    }
+
+    function zeroPadding(num, digit) {
+      var zero = '';
+      for (var i = 0; i < digit; i++) {
+        zero += '0';
+      }
+      return (zero + num).slice(-digit);
+    }
+  </script>
+</body>
+</html>
