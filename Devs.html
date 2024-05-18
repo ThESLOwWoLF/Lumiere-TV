@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movies</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    bod1 {
+      font-family: "Poppins", sans-serif;
+    }
+
+    header {
+      position: relative;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 80px;
+      background-color: #f0f0f0;
+    }
+
+    header h4 {
+      position: absolute;
+      left: 10%;
+      bottom: 1rem;
+      font-size: 1.6rem;
+    }
+    .intro {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #161616;
+      transition: 1s;
+    }
+
+    .logo-header {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ffffff;
+      text-align: center;
+    }
+    .logo {
+      position: relative;
+      display: inline-block;
+      opacity: 0;
+      transition: ease-in-out 0.5s;
+    }
+    .logo.active {
+      opacity: 1;
+    }
+    .logo.fade {
+      opacity: 0;
+    }
+  </style>
+</head>
+<bod1>
+  <div class="intro">
+    <div class="logo-header">
+      <h1>
+        <span class="logo">Dev</span>
+        <span class="logo">Page</span>
+      </h1>
+    </div>
+  </div>
+  <bod>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>DEVs Page</title>
+    <style>
+        html {
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            /* Dark mode colors and gradient */
+            background: #121212;
+            background: linear-gradient(135deg, #121212 25%, #1a1a1a 25%, #1a1a1a 50%, #121212 50%, #121212 75%, #1a1a1a 75%, #1a1a1a);
+            background-size: 40px 40px;
+            animation: move 4s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 40px 40px;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            opacity: 0.8;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #282c34;
+            padding: 18.5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .topnav p {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .topnav a {
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .topnav a:hover {
+            background-color: #61dafb;
+            color: #282c34;
+        }
+
+        .header {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            padding: 20px;
+            color: #ffffff;
+            margin: 20px auto;
+            width: fit-content;
+            opacity: 0.9;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .loading-container {
+            position: fixed;
+            bottom: 10px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .loading svg polyline {
+            fill: none;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .loading svg polyline#back {
+            stroke: #ff4d5033;
+        }
+
+        .loading svg polyline#front {
+            stroke: #ff4d4f;
+            stroke-dasharray: 48, 144;
+            stroke-dashoffset: 192;
+            animation: dash_682 1.4s linear infinite;
+        }
+
+        @keyframes dash_682 {
+            72.5% {
+                opacity: 0;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .img {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .vertical-img {
+            height: 400px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .vertical-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .textbox {
+            border-radius: 15px;
+            background-color: rgba(0, 123, 255, 0.7);
+            color: #fff;
+            border: 2px solid rgb(0, 123, 255);
+            padding: 20px;
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+            width: 300px;
+            box-sizing: border-box;
+        }
+
+        .textbox:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: rgba(0, 123, 255, 1);
+            color: #ffffff;
+        }
+
+        .textbox p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .vertical-img {
+                height: 300px;
+                width: 200px;
+            }
+
+            .textbox {
+                width: 200px;
+                padding: 15px;
+            }
+
+            .header {
+                font-size: 28px;
+            }
+
+            .topnav p {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="topnav">
+                <p id="Lumiere">Lumiere</p>
+                <div id="nv">
+                    <a href="Movies.html">MOVIES</a>
+                    <a href="TV.html">TV SHOWS</a>
+                    <a href="Dev.html">DEVs</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h1 class="header">CREATORS OF THE PAGE</h1>
+    <div class="loading-container">
+        <div class="loading">
+            <svg width="64px" height="48px">
+                <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="back"></polyline>
+                <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="front"></polyline>
+            </svg>
+        </div>
+    </div>
+    <div class="img">
+        <div>
+            <img src="sudh.jpeg" alt="Sudhan Shankar" class="vertical-img">
+            <div class="textbox">
+                <p>SUDHAN SHANKAR</p>
+                <p style="font-style: oblique;">ROLE:</p>
+                <p>Created movies with APIs and trailer feature</p>
+                <p>Created TV shows with APIs and trailer feature</p>
+            </div>
+        </div>
+        <div>
+            <img src="geeth.jpeg" alt="Geethika Yarabolu" class="vertical-img">
+            <div class="textbox">
+                <p>GEETHIKA YARABOLU</p>
+                <p style="font-style: oblique;">ROLE:</p>
+                <p>Designed home page</p>
+                <p>DEVs page</p>
+                <p>404 error page with a hidden game in it</p>
+            </div>
+        </div>
+        <div>
+            <img src="nigg.jpeg" alt="Nitesh N" class="vertical-img">
+            <div class="textbox">
+                <p>NITESH N</p>
+                <p style="font-style: oblique;">ROLE:</p>
+                <p>Database management system</p>
+                <p>Login page</p>
+                <p>Sign up page</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+  </bod>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let logoSpan = document.querySelectorAll('.logo');
+
+      setTimeout(() => {
+        logoSpan.forEach((span, idx) => {
+          setTimeout(() => {
+            span.classList.add('active');
+          }, (idx + 1) * 400)
+        });
+
+        setTimeout(() => {
+          logoSpan.forEach((span, idx) => {
+            setTimeout(() => {
+              span.classList.remove('active');
+              span.classList.add('fade');
+            }, (idx + 1) * 50)
+          });
+        }, 2000);
+
+        setTimeout(() => {
+          document.querySelector('.intro').style.top = '-100vh';
+        }, 2300);
+      });
+    });
+  </script>
+</bod1>
+</html>
