@@ -12,7 +12,8 @@ Hey there! Welcome to **Lumiere -tv** — your cozy little movie hangout on the 
 ---
 
 ## 🎬 Just a Heads-Up!
-All movies here come from **VIDSRC**! I’m just linking the magic — I don’t own any of it, so don’t come for me 😅. Just sit back, click, and enjoy the show!
+
+So, listen up, movie buffs! Every movie here is streamed from **VIDSRC** via an embed link. I’m just the middleman — none of this cinematic gold belongs to me! 😅 So if something’s off or the movie vanishes, don’t @ me, ok? I’m just here to spread the love of films, not get into trouble. Click, watch, vibe, repeat. 🍿
 
 ---
 
