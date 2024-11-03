@@ -1,6 +1,6 @@
 # 🌟 Welcome to **Lumiere -tv** 🌟
 
-Hey there! Welcome to **Lumiere -tv** — your cozy little movie hangout on the internet. Made with love (and a touch of code magic), Lumiere brings you endless movies, powered by the TMDB and VIDSRC APIs.
+Hey there! Welcome to **Lumiere -tv** — your cozy little movie hangout on the internet. Made with love (and a touch of code magic), Lumiere brings you endless movies, powered by the **TMDB API** and **VIDSRC APIs**.
 
 ---
 
