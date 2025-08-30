@@ -3,7 +3,7 @@
 // ~ Sudhan Shankar
 
 
-const API_KEY ='api_key=enter your key';
+const API_KEY ='api_key=0b96e64d1fbbb1dc38cbb8289101146d';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+API_KEY;
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
